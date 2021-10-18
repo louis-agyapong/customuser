@@ -1,3 +1,3 @@
-# Django Project Template
+# A simple Django custom user model
 
-Django project template
+A simple django custom user model
