@@ -14,10 +14,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(_("first name"), max_length=150)
     last_name = models.CharField(_("last name"), max_length=150)
     other_names = models.CharField(_("other names"), max_length=150, blank=True)
+    date_of_birth = models.DateField(_("date of birth"), blank=True, null=True)
     start_date = models.DateTimeField(_("start date"), default=timezone.now)
     about = models.TextField(_("about"), blank=True)
     is_staff = models.BooleanField(_("staff status"), default=False)
     is_active = models.BooleanField(_("active"), default=True)
+    date_joined = models.DateTimeField(_("date joined"), default=timezone.now)
 
     objects = CustomUserManager()
 
@@ -25,5 +27,5 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ["username", "first_name", "last_name"]
     
     def __str__(self):
-        return self.username
+        return self.email
     
